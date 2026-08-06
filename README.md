@@ -107,3 +107,5 @@ U.S. Air Force veteran · U.S. Secret clearance (renewed 2023)
 **marcel.gilbert.dev@gmail.com**
 
 *Open to software engineering roles — Tokyo or remote.*
+
+<!-- profile -->
