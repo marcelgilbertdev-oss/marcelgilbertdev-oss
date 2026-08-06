@@ -73,18 +73,41 @@ Group order swapped -> identical results: yes
 
 **AI/ML** Local LLM inference & model routing · RAG · embeddings · evaluation gates · MCP tool servers · SDXL / FLUX · TTS
 
-**3D** Unity (C#) · Unreal · Blender + `bpy` automation · rigging & animation pipelines · image-to-3D · FBX / GLB
+**Generative media** SDXL / FLUX image generation · image-to-3D mesh conversion · local video
+models · TTS voice cloning · ffmpeg assembly pipelines
+
+**3D & games** Unity (C#) · Unreal · Blender + `bpy` automation · rigging, weight transfer &
+animation pipelines · PBR texture authoring · LOD-tiered FBX / GLB export · scene & level building
 
 **Platforms** macOS · Linux · Unix-like · Windows
 
 ---
 
-### 🎬 Also
+### 🎨 Generative media & 3D pipelines
 
-I rig and animate characters in Blender through Python automation I wrote — including a
-repeatable rig-transplant procedure that retargets a validated armature onto new meshes and
-exports LOD-tiered FBX. I art-direct and produce animated shorts, and I'm building a 2.5D
-mobile platformer. The engineering and the art feed each other.
+I build the whole content chain, not just the code around it.
+
+**Image generation** — SDXL and FLUX running locally, driven from my own in-app lab rather than
+a hosted service. Character sheets, colourways, environment and prop art.
+
+**Image → 3D** — single images converted to textured 3D meshes, then cleaned, retopologised, and
+brought into a rig.
+
+**Video & animation generation** — local video models plus an animation and storyboard studio,
+assembled through an ffmpeg pipeline into finished animated shorts.
+
+**Voice** — cloned and synthesised voices through a local TTS sidecar, used for narration.
+
+**3D game assets** — two complete character rigs authored in Blender with Python (`bpy`)
+automation I wrote: weight transfer, a repeatable rig-transplant procedure that retargets a
+validated armature onto new meshes, 16 animation clips, full PBR texture sets
+(base colour, normal, metallic/roughness, emissive), and LOD-tiered FBX export.
+
+**Unity & Unreal** — scene and level building, gameplay systems, camera controllers, asset
+import pipelines, and a 2.5D mobile platformer in progress.
+
+The engineering and the art feed each other: the pipeline exists because I needed it, and the
+tooling got built because doing it by hand didn't scale.
 
 ---
 
