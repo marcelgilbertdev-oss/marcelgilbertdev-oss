@@ -10,6 +10,10 @@ taught me that; I now apply the same discipline to type systems, test suites, an
 🌏 Open to **remote worldwide**, Japan-based, or hybrid
 💬 English (native) · Japanese (studying)
 
+**Start here:** [**zerofayyz-fintech.vercel.app**](https://zerofayyz-fintech.vercel.app) — a
+deployed payments platform you can click through in three minutes, with
+[the source](https://github.com/marcelgilbertdev-oss/zerofayyz-fintech) beside it.
+
 ---
 
 ### 🔭 What I'm building
@@ -34,6 +38,42 @@ machine should be **verifiable, not trusted** — that principle shaped the whol
 ---
 
 ### 📌 Public work
+
+#### [`zerofayyz-fintech`](https://github.com/marcelgilbertdev-oss/zerofayyz-fintech) · TypeScript · Go · PostgreSQL
+
+**A cloud payments and operations platform — deployed, monitored, and reviewable.**
+→ **[zerofayyz-fintech.vercel.app](https://zerofayyz-fintech.vercel.app)** · Stripe sandbox
+only; no real funds move, so everything is safe to click.
+
+One Fastify/TypeScript API on PostgreSQL, consumed **unmodified by three independent
+frontends** — Next.js, Vue 3 and Svelte 5 — each validating every response against one shared
+Zod contract at the network boundary. Yen-denominated and bilingual, with translations
+enforced by the type system: a missing string is a compile error.
+
+- **Idempotency lives in a database constraint**, not application branching, so a duplicate
+  webhook is refused under concurrency and across restarts.
+- **An append-only audit log the application itself cannot rewrite** — enforced by a database
+  trigger, not by convention.
+- **Four-eyes refunds:** the requester cannot approve their own request, enforced by the API
+  *and* by a CHECK constraint, and the ledger moves only on Stripe's signed event.
+- **An independent reconciler in Go**, deliberately a separate process — a checker that shares
+  code with the thing it checks agrees with its bugs.
+- **341 automated tests across ten suites**, all gated in ten CI jobs, including thirteen
+  Cucumber scenarios that state the payment rules in plain language and execute.
+- **Monitored hourly in production** by a 30-check suite whose webhook probe signs a real
+  event: a health endpoint reports that a signing secret is *present*, never that it is
+  *correct*. I broke the secret on purpose to watch the alert fire, and restored it.
+- **A QA surface an AI agent can drive** over the Model Context Protocol — six tools, with a
+  protocol handshake check in CI. Its first human-driven run found a live defect.
+
+*The defect worth citing:* the webhook handler had nineteen passing unit tests and had never
+once worked. Every test stubbed the database, so none executed the real SQL — and the SQL was
+invalid. The first integration test against real PostgreSQL found it immediately. **A test
+suite has a shape, and defects collect where that shape does not reach.**
+
+Thirteen decision records explain the trade-offs, including the ones still being carried.
+
+---
 
 #### [`fair-scan`](https://github.com/marcelgilbertdev-oss/fair-scan) · Python · MIT
 
