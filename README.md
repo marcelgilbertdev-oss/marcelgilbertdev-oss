@@ -6,7 +6,7 @@ I build software where being wrong has consequences, and I test it like it matte
 Twenty-one years leading technical teams in safety-critical aviation across four countries
 taught me that; I now apply the same discipline to type systems, test suites, and reviewable code.
 
-📍 Kuwait → relocating to **Japan** · 🇯🇵 residency via spouse (permanent resident) — **no visa sponsorship required**
+📍 Kuwait → relocating to **Japan** · 🇯🇵 residency comes through my wife, a permanent resident — **no employer sponsorship required** (spouse status held previously)
 🌏 Open to **remote worldwide**, Japan-based, or hybrid
 💬 English (native) · Japanese (studying)
 
