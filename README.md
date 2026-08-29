@@ -1,6 +1,6 @@
 # Marcel Gilbert
 
-**Full-stack engineer — TypeScript · Python · AI systems · real-time 3D**
+**Full-stack engineer — TypeScript · Python · PostgreSQL · AI systems**
 
 I build software where being wrong has consequences, and I test it like it matters.
 Twenty-one years leading technical teams in safety-critical aviation across four countries
@@ -104,51 +104,41 @@ Group order swapped -> identical results: yes
 
 ### 🧰 Tech
 
-**Languages** TypeScript · Python · C# · JavaScript · SQL · Bash
+**Languages** TypeScript · Python · Go · SQL · C# · JavaScript · Bash
 
-**Frontend** React 19 · Vite · strict-mode TypeScript · REST data layers · centralized state
+**Frontend** React 19 / Next.js · Vue 3 (Composition API + Pinia) · Svelte 5 (runes) · Vite ·
+strict-mode TypeScript · runtime-validated shared contracts (Zod) · i18n enforced by the type system
 
-**Backend** FastAPI · async I/O · schema validation · SQLite · background workers
+**Backend** Node + Fastify · Python + FastAPI · PostgreSQL · REST API design · schema validation ·
+webhook signature verification & idempotency · sessions, roles and rate limiting · background workers
 
-**Testing** pytest · unit / integration / regression · ESLint 9 + typescript-eslint · `tsc -b` as a build gate
+**Testing & QA** Playwright (end-to-end, visual, accessibility) · Vitest · pytest · `node --test` ·
+Cucumber / Gherkin · integration tests against a real database · axe-core in CI ·
+ESLint 9 + typescript-eslint · `tsc -b` as a build gate
 
-**AI/ML** Local LLM inference & model routing · RAG · embeddings · evaluation gates · MCP tool servers · SDXL / FLUX · TTS
+**Infrastructure** GitHub Actions CI/CD · Docker · Kubernetes manifests · Render / Vercel / Neon ·
+database migrations · structured logging · error tracking · hourly production smoke monitoring
 
-**Generative media** SDXL / FLUX image generation · image-to-3D mesh conversion · local video
-models · TTS voice cloning · ffmpeg assembly pipelines
+**AI/ML** Local LLM inference & model routing · RAG · embeddings · evaluation gates · MCP tool servers
 
-**3D & games** Unity (C#) · Unreal · Blender + `bpy` automation · rigging, weight transfer &
-animation pipelines · PBR texture authoring · LOD-tiered FBX / GLB export · scene & level building
+**Generative media & 3D** SDXL / FLUX · image-to-3D mesh conversion · TTS voice cloning ·
+Blender + `bpy` automation · Unity (C#) · Unreal
 
 **Platforms** macOS · Linux · Unix-like · Windows
 
 ---
 
-### 🎨 Generative media & 3D pipelines
+### 🎨 Also: generative media & 3D pipelines
 
-I build the whole content chain, not just the code around it.
+Alongside the engineering I build content tooling — SDXL and FLUX image generation running
+locally, image-to-3D mesh conversion, TTS voice synthesis, and two complete character rigs
+authored in Blender with Python (`bpy`) automation I wrote: weight transfer, a repeatable
+rig-transplant procedure that retargets a validated armature onto new meshes, 16 animation
+clips, and LOD-tiered FBX export. Unity and Unreal scene work, plus a 2.5D mobile platformer
+in progress.
 
-**Image generation** — SDXL and FLUX running locally, driven from my own in-app lab rather than
-a hosted service. Character sheets, colourways, environment and prop art.
-
-**Image → 3D** — single images converted to textured 3D meshes, then cleaned, retopologised, and
-brought into a rig.
-
-**Video & animation generation** — local video models plus an animation and storyboard studio,
-assembled through an ffmpeg pipeline into finished animated shorts.
-
-**Voice** — cloned and synthesised voices through a local TTS sidecar, used for narration.
-
-**3D game assets** — two complete character rigs authored in Blender with Python (`bpy`)
-automation I wrote: weight transfer, a repeatable rig-transplant procedure that retargets a
-validated armature onto new meshes, 16 animation clips, full PBR texture sets
-(base colour, normal, metallic/roughness, emissive), and LOD-tiered FBX export.
-
-**Unity & Unreal** — scene and level building, gameplay systems, camera controllers, asset
-import pipelines, and a 2.5D mobile platformer in progress.
-
-The engineering and the art feed each other: the pipeline exists because I needed it, and the
-tooling got built because doing it by hand didn't scale.
+The tooling exists because doing it by hand didn't scale — which is the same reason I write
+any tool.
 
 ---
 
