@@ -148,8 +148,22 @@ any tool.
 **Advanced Cyber Security Certificate** (Undergraduate, awarded with honor)
 
 Before software: 21 years in aircraft maintenance and program leadership — U.S. Air Force,
-Lockheed Martin, DynCorp, Zenetex, AAR. Site lead in Japan, training manager for an 80-person
-depot program in Poland, instructor in Oman teaching F-16 systems to non-native English speakers.
+Lockheed Martin, DynCorp, Zenetex, AAR.
+
+**Poland** — program systems owner for an 80-person USAFE F-16 depot. Authored the program's
+Performance Work Statement from the governing Air Force Instruction, then built the systems
+that satisfied it: qualification and training records from nothing, a leave-forecasting tool
+that surfaced manning shortfalls weeks early, and a digitised onboarding pipeline covering
+security-clearance investigation, fingerprint submission and expense reporting. The records
+those systems produced held up under a Defense Contract Management Agency review.
+
+**Japan** — alternate site lead at MCAS Iwakuni, leading a team of eight on a C-130J
+programme, and built that site's training and qualification tracking from the ground up.
+
+**Oman** — built the Microsoft Project system the Kuwait Air Force F-16 phase-inspection
+programme was planned and run from: work breakdown, dependencies, resource loading, schedule
+baselines. Also taught F-16 systems to non-native English speakers.
+
 Work governed entirely by technical data, quality gates, and traceable records.
 
 U.S. Air Force veteran · U.S. Secret clearance (renewed 2023)
