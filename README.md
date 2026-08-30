@@ -26,10 +26,10 @@ and a system-health lane that can inspect and repair the machine it runs on.
 
 | | |
 |---|---|
-| Frontend | ~24,000 lines of **strict TypeScript** + React 19, 20 feature panels, 84 explicit types |
-| Backend | **Python** + FastAPI, 39 REST endpoints, job orchestration with cancellation |
-| Tests | **~9,300** automated tests across 312 modules |
-| History | **1,180+** commits |
+| Frontend | **25,889 lines** of **strict TypeScript** + React 19, 22 feature panels, 84 explicit types |
+| Backend | **Python** + FastAPI, 175 HTTP routes, job orchestration with cancellation |
+| Tests | **9,283** automated tests across 317 modules |
+| History | **1,200** commits |
 | Safety | Allowlisted + sandboxed operations, reversible actions, audit receipt on every state change |
 
 Every operation that changes state writes an auditable record. A system that acts on a real
