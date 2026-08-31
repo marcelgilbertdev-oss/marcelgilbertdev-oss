@@ -54,11 +54,14 @@ enforced by the type system: a missing string is a compile error.
   webhook is refused under concurrency and across restarts.
 - **An append-only audit log the application itself cannot rewrite** — enforced by a database
   trigger, not by convention.
+- **Row-level security in a request lane:** user-serving reads adopt a low-privilege database
+  role per transaction, so PostgreSQL's own policies — not WHERE clauses — decide which rows
+  exist. Proven by tests that SELECT with no per-user filter.
 - **Four-eyes refunds:** the requester cannot approve their own request, enforced by the API
   *and* by a CHECK constraint, and the ledger moves only on Stripe's signed event.
 - **An independent reconciler in Go**, deliberately a separate process — a checker that shares
   code with the thing it checks agrees with its bugs.
-- **341 automated tests across ten suites**, all gated in ten CI jobs, including thirteen
+- **351 automated tests across ten suites**, all gated in ten CI jobs, including thirteen
   Cucumber scenarios that state the payment rules in plain language and execute.
 - **Monitored hourly in production** by a 30-check suite whose webhook probe signs a real
   event: a health endpoint reports that a signing secret is *present*, never that it is
