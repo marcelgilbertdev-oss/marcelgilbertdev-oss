@@ -78,6 +78,18 @@ Thirteen decision records explain the trade-offs, including the ones still being
 
 ---
 
+#### [`endpoint-pulse`](https://github.com/marcelgilbertdev-oss/endpoint-pulse) · TypeScript · MIT
+
+A Manifest V3 browser extension that watches health endpoints from the toolbar — badge shows
+failures, one notification when an endpoint goes down and one when it recovers, never a repeat.
+
+It ships watching the payments platform above, making it the **fourth independent consumer of
+the same API** — and the first from outside that repository, which is the strongest test of the
+contract claim. MV3 done properly: the service worker owns no state (Chrome kills it when
+idle), and host access is requested **per origin at runtime**, never as a blanket grab at
+install. The test most extension repos skip: Playwright loads the built extension into
+Chromium and proves the worker registers, its alarm exists, and both pages render.
+
 #### [`fair-scan`](https://github.com/marcelgilbertdev-oss/fair-scan) · Python · MIT
 
 A two-phase fair scan over a grouped document corpus, where **group order never decides results**.
