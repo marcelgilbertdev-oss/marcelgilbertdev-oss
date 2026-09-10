@@ -26,9 +26,9 @@ and a system-health lane that can inspect and repair the machine it runs on.
 
 | | |
 |---|---|
-| Frontend | **25,889 lines** of **strict TypeScript** + React 19, 22 feature panels, 84 explicit types |
+| Frontend | **~25,000 lines** of **strict TypeScript** + React 19, 23 feature panels across 19 tabs, 84 explicit types |
 | Backend | **Python** + FastAPI, 175 HTTP routes, job orchestration with cancellation |
-| Tests | **9,283** automated tests across 317 modules |
+| Tests | **9,685** automated tests across 347 modules |
 | History | **1,200** commits |
 | Safety | Allowlisted + sandboxed operations, reversible actions, audit receipt on every state change |
 
@@ -65,7 +65,7 @@ enforced by the type system: a missing string is a compile error.
   *and* by a CHECK constraint, and the ledger moves only on Stripe's signed event.
 - **An independent reconciler in Go**, deliberately a separate process — a checker that shares
   code with the thing it checks agrees with its bugs.
-- **384 automated tests across ten suites**, all gated in ten CI jobs, including thirteen
+- **386 automated tests across ten suites**, all gated in ten CI jobs, including thirteen
   Cucumber scenarios that state the payment rules in plain language and execute.
 - **A durable job queue in the same database that holds the ledger** — atomic claims over
   `FOR UPDATE SKIP LOCKED`, lease-based crash recovery, capped backoff and dead-lettering,
@@ -98,6 +98,29 @@ contract claim. MV3 done properly: the service worker owns no state (Chrome kill
 idle), and host access is requested **per origin at runtime**, never as a blanket grab at
 install. The test most extension repos skip: Playwright loads the built extension into
 Chromium and proves the worker registers, its alarm exists, and both pages render.
+
+#### [`receipt-portal`](https://github.com/marcelgilbertdev-oss/receipt-portal) · TypeScript · Supabase · Deno
+
+→ **[receipt-portal-one.vercel.app](https://receipt-portal-one.vercel.app)**
+
+A customer's own receipts, built entirely on Supabase — Auth, row-level security policies,
+Storage, and one Edge Function on Deno that mirrors payments from the platform above. It is the
+**fifth independent consumer of the same API**, and it exists to enforce the same rule the
+platform enforces by hand — *a customer sees only their own rows* — the other way round, so the
+two row-level-security models can be compared honestly. That comparison is ADR 17 in the platform
+repo.
+
+- **Ten isolation tests against the live project:** two signed-in customers, queries with no
+  per-customer filter, rows absent because a policy refused them. Writes refused, other people's
+  files refused, other people's signed URLs refused.
+- **The Edge Function holds the only privileged key at runtime.** It authenticates its caller with
+  a shared secret compared in constant time, answers identically for a mailbox it has never seen
+  so it cannot enumerate accounts, and is idempotent — ninety-three rows on the first run,
+  ninety-three on the second.
+
+*The trap worth knowing:* with "automatically expose new tables" off — which Supabase recommends —
+a new table has no permissions for anyone, including the service role. Default-deny reaching the
+privileged lane; correct, and it has to be granted back on purpose.
 
 #### [`fair-scan`](https://github.com/marcelgilbertdev-oss/fair-scan) · Python · MIT
 
