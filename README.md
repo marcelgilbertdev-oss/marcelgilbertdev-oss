@@ -65,14 +65,14 @@ enforced by the type system: a missing string is a compile error.
   *and* by a CHECK constraint, and the ledger moves only on Stripe's signed event.
 - **An independent reconciler in Go**, deliberately a separate process — a checker that shares
   code with the thing it checks agrees with its bugs.
-- **386 automated tests across ten suites**, all gated in ten CI jobs, including thirteen
+- **389 automated tests across ten suites**, all gated in ten CI jobs, including thirteen
   Cucumber scenarios that state the payment rules in plain language and execute.
 - **A durable job queue in the same database that holds the ledger** — atomic claims over
   `FOR UPDATE SKIP LOCKED`, lease-based crash recovery, capped backoff and dead-lettering,
   surfaced to operators at `/admin/jobs`. The guarantee is at-least-once and is written down
   as such: exactly-once does not survive a channel that can die between doing the work and
   acknowledging it.
-- **Monitored hourly in production** by a 30-check suite whose webhook probe signs a real
+- **Monitored in production on a schedule** by a 30-check suite whose webhook probe signs a real
   event: a health endpoint reports that a signing secret is *present*, never that it is
   *correct*. I broke the secret on purpose to watch the alert fire, and restored it.
 - **A QA surface an AI agent can drive** over the Model Context Protocol — six tools, with a
@@ -83,7 +83,7 @@ once worked. Every test stubbed the database, so none executed the real SQL — 
 invalid. The first integration test against real PostgreSQL found it immediately. **A test
 suite has a shape, and defects collect where that shape does not reach.**
 
-Thirteen decision records explain the trade-offs, including the ones still being carried.
+Twenty decision records explain the trade-offs, including the ones still being carried.
 
 ---
 
